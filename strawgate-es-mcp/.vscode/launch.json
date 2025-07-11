@@ -9,7 +9,24 @@
             "name": "Python Debugger: Module",
             "type": "debugpy",
             "request": "launch",
-            "module": "strawgate_es_mcp.main"
-        }
+            "module": "strawgate_es_mcp.main",
+            "args": []
+        },
+        // Debug Tests config
+        {
+            "name": "Python: Debug Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "purpose": [
+                "debug-test"
+            ],
+            "args": [
+                "-vv",
+                "-s" // Disable Captures
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
     ]
 }

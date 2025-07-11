@@ -3,7 +3,7 @@ name = "knowledge_base_mcp"
 version = "0.5.0"
 description = "Knowledge Base MCP"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 dependencies = [
     "aiohttp[speedups]>=3.12.13",
     "asyncclick>=8.1.8",
@@ -35,7 +35,7 @@ dependencies = [
     "githubkit>=0.12.15",
     "flashrank>=0.2.10",
     "llama-index-storage-docstore-duckdb>=0.1.0",
-    "llama-index-storage-kvstore-duckdb>=0.1.1",
+#    "llama-index-storage-kvstore-duckdb>=0.1.1",
     "llama-index-storage-index-store-duckdb>=0.1.0",
 ]
 

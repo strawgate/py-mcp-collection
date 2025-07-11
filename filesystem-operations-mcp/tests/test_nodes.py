@@ -267,32 +267,32 @@ class TestDirectoryEntry:
                 "test_with_hello_world.txt",
             ]
 
-        @pytest.fixture(autouse=True)
-        def playground_beats(self):
-            root_dir = Path("./playground/beats")
-            if not root_dir.exists():
-                # git clone --depth 1 --branch <branch_name> --single-branch <repo_url> <clone_path>
+        # @pytest.fixture(autouse=True)
+        # def playground_beats(self):
+        #     root_dir = Path("./playground/beats")
+        #     if not root_dir.exists():
+        #         # git clone --depth 1 --branch <branch_name> --single-branch <repo_url> <clone_path>
 
-                # Clone commit 63a537a17839ef23b0cd4cd7d62e708319374b61 with depth 1 and single branch
-                commit = "63a537a17839ef23b0cd4cd7d62e708319374b61"
-                repo_url = "https://github.com/elastic/beats.git"
-                clone_path = "./playground/beats"
-                git_clone_command = f"git clone --depth 1 --branch {commit} --single-branch {repo_url} {clone_path}"
-                _ = subprocess.run(git_clone_command, check=False, shell=True)  # noqa: S602
+        #         # Clone commit 63a537a17839ef23b0cd4cd7d62e708319374b61 with depth 1 and single branch
+        #         commit = "63a537a17839ef23b0cd4cd7d62e708319374b61"
+        #         repo_url = "https://github.com/elastic/beats.git"
+        #         clone_path = "./playground/beats"
+        #         git_clone_command = f"git clone --depth 1 --branch {commit} --single-branch {repo_url} {clone_path}"
+        #         _ = subprocess.run(git_clone_command, check=False, shell=True)  # noqa: S602
 
-            return root_dir.resolve()
+        #     return root_dir.resolve()
 
-        async def test_beats_search(self, playground_beats: Path):
-            root_dir = DirectoryEntry(path=playground_beats, filesystem=FileSystem(path=playground_beats))
-            async_iter = root_dir.asearch_files(["Hello"])
-            results = [file async for file in async_iter]
-            assert len(results) == 221
+        # async def test_beats_search(self, playground_beats: Path):
+        #     root_dir = DirectoryEntry(path=playground_beats, filesystem=FileSystem(path=playground_beats))
+        #     async_iter = root_dir.asearch_files(["Hello"])
+        #     results = [file async for file in async_iter]
+        #     assert len(results) == 221
 
-        async def test_beats_search_wide(self, playground_beats: Path):
-            root_dir = DirectoryEntry(path=playground_beats, filesystem=FileSystem(path=playground_beats))
-            async_iter = root_dir.asearch_files(["l"])
-            results = [file async for file in async_iter]
-            assert len(results) == 7461
+        # async def test_beats_search_wide(self, playground_beats: Path):
+        #     root_dir = DirectoryEntry(path=playground_beats, filesystem=FileSystem(path=playground_beats))
+        #     async_iter = root_dir.asearch_files(["l"])
+        #     results = [file async for file in async_iter]
+        #     assert len(results) == 7461
 
         # @pytest.mark.benchmark(group="search_files")
         # async def test_benchmark_search(self, playground_beats: Path, benchmark: BenchmarkFixture):

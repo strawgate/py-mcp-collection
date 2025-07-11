@@ -98,7 +98,7 @@ When running, the MCP server exposes the following tools:
             "Knowledge Base": {
                 "command": "uvx",
                 "args": [
-                    "git+https://github.com/strawgate/py-mcp-collection.git#subdirectory=knowledge_base_mcp",
+                    "knowledge_base_mcp",
                     "duckdb",
                     "persistent",
                     "run"
