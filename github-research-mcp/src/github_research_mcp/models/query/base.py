@@ -1,8 +1,9 @@
 from abc import ABC, abstractmethod
 from collections.abc import Sequence
-from typing import ClassVar, Generic, Literal, Self, TypeVar, override
+from typing import ClassVar, Generic, Literal, Self, override
 
 from pydantic import BaseModel, ConfigDict, Field
+from typing_extensions import TypeVar
 
 
 class BaseQualifier(BaseModel, ABC, frozen=True):
